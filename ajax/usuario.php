@@ -5,10 +5,12 @@ $usuario = new Usuario();
 
 $idusuario = isset($_POST["idusuario"]) ? limpiarCadena($_POST["idusuario"]) : "";
 $nombre = isset($_POST["nombre"]) ? limpiarCadena($_POST["nombre"]) : "";
-$celular = isset($_POST["celular"]) ? limpiarCadena($_POST["celular"]) : "";
+$cedula = isset($_POST["cedula"]) ? limpiarCadena($_POST["cedula"]) : "";
 $direccion = isset($_POST["direccion"]) ? limpiarCadena($_POST["direccion"]) : "";
+$celular = isset($_POST["celular"]) ? limpiarCadena($_POST["celular"]) : "";
 $email = isset($_POST["email"]) ? limpiarCadena($_POST["email"]) : "";
 $cargo = isset($_POST["cargo"]) ? limpiarCadena($_POST["cargo"]) : "";
+$login = isset($_POST["login"]) ? limpiarCadena($_POST["login"]) : "";
 $clave = isset($_POST["clave"]) ? limpiarCadena($_POST["clave"]) : "";
 $imagen = isset($_POST["imagen"]) ? limpiarCadena($_POST["imagen"]) : "";
 
@@ -23,10 +25,10 @@ switch ($_GET["op"]) {
         }
 
         if (empty($idusuario)) {
-            $rspta = $usuario->insertar($nombre, $celular, $direccion, $email, $cargo, $clave, $imagen);
+            $rspta = $usuario->insertar($nombre, $cedula, $direccion, $celular, $email, $cargo, $login, $clave, $imagen);
             echo $rspta ? "Usuario registrado" : "No se pudo registrar";
         } else {
-            $rspta = $usuario->editar($idusuario, $nombre, $celular, $direccion, $email, $cargo, $clave, $imagen);
+            $rspta = $usuario->editar($idusuario, $nombre, $cedula, $direccion, $celular, $email, $cargo, $login, $clave, $imagen);
             echo $rspta ? "Usuario actualizado" : "No se pudo actualizar";
         }
         break;
@@ -58,12 +60,14 @@ switch ($_GET["op"]) {
                     '<button class="btn btn-warning" onclick="mostrar(' . $reg->idusuario . ')"><i class="fa fa-pencil"></i></button>' .
                     ' <button class="btn btn-primary" onclick="activar(' . $reg->idusuario . ')"><i class="fa fa-check"></i></button>',
                 "1" => $reg->nombre,
-                "2" => $reg->direccion,
-                "3" => $reg->direccion,
-                "4" => $reg->email,
-                "5" => $reg->cargo,
-                "6" => "<img src='../files/usuarios/" . $reg->imagen . "' height='50px' width='50px'>",
-                "7" => ($reg->condicion) ? '<span class="label bg-green">Activo</span>' : '<span class="label bg-red">Inactivo</span>'
+                "2" => $reg->cedula,
+                "3" => $reg->celular,
+                "4" => $reg->direccion,
+                "5" => $reg->email,
+                "6" => $reg->cargo,
+                "7" => $reg->login,
+                "8" => "<img src='../files/usuarios/" . $reg->imagen . "' height='50px' width='50px'>",
+                "9" => ($reg->condicion) ? '<span class="label bg-green">Activo</span>' : '<span class="label bg-red">Inactivo</span>'
             );
         }
 
@@ -78,3 +82,6 @@ switch ($_GET["op"]) {
         break;
 }
 ?>
+
+
+

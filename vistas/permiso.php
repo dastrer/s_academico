@@ -18,12 +18,12 @@ require 'header.php';
           <div class="panel-body table-responsive" id="listadoregistros">
             <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
               <thead>
-                <th>Opciones</th>
+                
                 <th>Nombre del Permiso</th>
               </thead>
               <tbody></tbody>
               <tfoot>
-                <th>Opciones</th>
+          
                 <th>Nombre del Permiso</th>
               </tfoot>
             </table>

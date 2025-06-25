@@ -1,26 +1,40 @@
 <?php
 require "../config/Conexion.php";
 
+function limpiarCadena($str){
+    $str = trim($str);
+    $str = stripslashes($str);
+    $str = htmlspecialchars($str);
+    return $str;
+}
+
 class Usuario
 {
     public function __construct()
     {
     }
 
-    public function insertar($nombre, $celular, $direccion, $email, $cargo, $clave, $imagen)
+    public function insertar($nombre, $cedula, $direccion, $celular, $email, $cargo, $login, $clave, $imagen)
     {
         $clavehash = hash("SHA256", $clave);
-        $sql = "INSERT INTO usuario (nombre, celular, direccion, email, cargo, clave, imagen, condicion)
-                VALUES ('$nombre', '$celular', '$direccion', '$email', '$cargo', '$clavehash', '$imagen', '1')";
+        $sql = "INSERT INTO usuario (nombre, cedula, direccion, celular, email, cargo, login, clave, imagen, condicion)
+                VALUES ('$nombre', '$cedula', '$direccion', '$celular', '$email', '$cargo', '$login', '$clavehash', '$imagen', '1')";
         return ejecutarConsulta($sql);
     }
 
-    public function editar($idusuario, $nombre, $celular, $direccion, $email, $cargo, $clave, $imagen)
+    public function editar($idusuario, $nombre, $cedula, $direccion, $celular, $email, $cargo, $login, $clave, $imagen)
     {
-        $clavehash = hash("SHA256", $clave);
-        $sql = "UPDATE usuario SET nombre='$nombre', celular='$celular', direccion='$direccion',
-                email='$email', cargo='$cargo', clave='$clavehash', imagen='$imagen'
-                WHERE idusuario='$idusuario'";
+        if (empty($clave)) {
+            // No actualiza clave si está vacía
+            $sql = "UPDATE usuario SET nombre='$nombre', cedula='$cedula', direccion='$direccion', celular='$celular',
+                    email='$email', cargo='$cargo', login='$login', imagen='$imagen'
+                    WHERE idusuario='$idusuario'";
+        } else {
+            $clavehash = hash("SHA256", $clave);
+            $sql = "UPDATE usuario SET nombre='$nombre', cedula='$cedula', direccion='$direccion', celular='$celular',
+                    email='$email', cargo='$cargo', login='$login', clave='$clavehash', imagen='$imagen'
+                    WHERE idusuario='$idusuario'";
+        }
         return ejecutarConsulta($sql);
     }
 
@@ -49,3 +63,4 @@ class Usuario
     }
 }
 ?>
+

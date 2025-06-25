@@ -18,10 +18,12 @@
               <thead>
                 <th>Opciones</th>
                 <th>Nombre</th>
+                <th>Cédula</th>
                 <th>Celular</th>
                 <th>Dirección</th>
                 <th>Email</th>
                 <th>Cargo</th>
+                <th>Login</th>
                 <th>Imagen</th>
                 <th>Estado</th>
               </thead>
@@ -29,49 +31,69 @@
               <tfoot>
                 <th>Opciones</th>
                 <th>Nombre</th>
+                <th>Cédula</th>
                 <th>Celular</th>
                 <th>Dirección</th>
                 <th>Email</th>
                 <th>Cargo</th>
+                <th>Login</th>
                 <th>Imagen</th>
                 <th>Estado</th>
               </tfoot>
             </table>
           </div>
 
-          <div class="panel-body" id="formularioregistros">
+          <div class="panel-body" id="formularioregistros" style="display:none;">
             <form name="formulario" id="formulario" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="idusuario" id="idusuario">
+
               <div class="form-group col-lg-6">
                 <label>Nombre:</label>
                 <input type="text" class="form-control" name="nombre" id="nombre" required>
               </div>
+
+              <div class="form-group col-lg-6">
+                <label>Cédula:</label>
+                <input type="text" class="form-control" name="cedula" id="cedula" required>
+              </div>
+
               <div class="form-group col-lg-6">
                 <label>Celular:</label>
                 <input type="text" class="form-control" name="celular" id="celular">
               </div>
+
               <div class="form-group col-lg-6">
                 <label>Dirección:</label>
                 <input type="text" class="form-control" name="direccion" id="direccion">
               </div>
+
               <div class="form-group col-lg-6">
                 <label>Email:</label>
                 <input type="email" class="form-control" name="email" id="email">
               </div>
+
               <div class="form-group col-lg-6">
                 <label>Cargo:</label>
                 <input type="text" class="form-control" name="cargo" id="cargo">
               </div>
+
+              <div class="form-group col-lg-6">
+                <label>Login:</label>
+                <input type="text" class="form-control" name="login" id="login" required>
+              </div>
+
               <div class="form-group col-lg-6">
                 <label>Clave:</label>
-                <input type="password" class="form-control" name="clave" id="clave">
+                <input type="password" class="form-control" name="clave" id="clave" placeholder="Dejar vacío para no cambiar">
               </div>
+
               <div class="form-group col-lg-6">
                 <label>Imagen:</label>
                 <input type="file" class="form-control" name="imagen" id="imagen">
                 <input type="hidden" name="imagenactual" id="imagenactual">
-                <img src="" width="150px" height="120px" id="imagenmuestra">
+                <img src="" width="150px" height="120px" id="imagenmuestra" style="display:none;">
               </div>
+
               <div class="form-group col-lg-12">
                 <button class="btn btn-primary" type="submit" id="btnGuardar">
                   <i class="fa fa-save"></i> Guardar
@@ -82,6 +104,7 @@
               </div>
             </form>
           </div>
+
         </div>
       </div>
     </div>
@@ -90,3 +113,5 @@
 
 <?php require 'footer.php'; ?>
 <script type="text/javascript" src="scripts/usuario.js"></script>
+
+
