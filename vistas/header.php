@@ -106,7 +106,9 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="materia.php"><i class="fa fa-circle-o"></i> Materias</a></li>
+                        <li><a href="log_materia.php"><i class="fa fa-circle-o"></i> Materias Agregadas</a></li>
                         <li><a href="grado.php"><i class="fa fa-circle-o"></i> Grados</a></li>
+                        <li><a href="log_grado.php"><i class="fa fa-circle-o"></i> Actualizacion de Grados</a></li>
                         <li><a href="carrera.php"><i class="fa fa-circle-o"></i> Carreras</a></li>
                         <li><a href="turno.php"><i class="fa fa-circle-o"></i> Turnos</a></li>
                         <li><a href="aula.php"><i class="fa fa-circle-o"></i> Aulas</a></li>
